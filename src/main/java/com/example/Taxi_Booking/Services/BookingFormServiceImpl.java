@@ -32,5 +32,4 @@ public class BookingFormServiceImpl implements BookingFromService {
     public void deleteBooking(int id) {
         bookingFormRepository.deleteById(id);
     }
-
 }
