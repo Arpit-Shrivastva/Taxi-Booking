@@ -59,7 +59,12 @@ public class PageController {
     public String servicesView(HttpServletRequest request, Model model) {
         String req = request.getRequestURI();
         model.addAttribute("myCurrentPage", req);
-        System.out.println("Service Load");
+
+        //Data collection
+
+        List<ServiceForm> allServices = serviceFormService.readAllServices();
+        model.addAttribute("allservices", allServices);
+        
         return "services"; // services.html
     }
 
