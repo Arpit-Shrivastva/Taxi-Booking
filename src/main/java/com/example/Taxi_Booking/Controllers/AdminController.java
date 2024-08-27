@@ -84,4 +84,9 @@ public class AdminController {
         redirectAttributes.addFlashAttribute("message", "Booking deleted successfully");
         return "redirect:/admin/readAllBookings";
     }
+
+    @GetMapping("addService")
+    public String addServiceView() {
+        return "admin/addservice";
+    }
 }
