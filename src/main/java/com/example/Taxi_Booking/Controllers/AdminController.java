@@ -89,4 +89,9 @@ public class AdminController {
     public String addServiceView() {
         return "admin/addservice";
     }
+
+    @InitBinder
+    public void stopBinding(WebDataBinder webDataBinder) {
+        webDataBinder.setDisallowedFields("image");
+    }
 }
