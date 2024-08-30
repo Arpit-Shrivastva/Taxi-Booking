@@ -94,4 +94,26 @@ public class AdminController {
     public void stopBinding(WebDataBinder webDataBinder) {
         webDataBinder.setDisallowedFields("image");
     }
+
+    @PostMapping("addService")
+    public String addService(@ModelAttribute ServiceForm serviceForm,
+            @RequestParam("image") MultipartFile multipartFile, RedirectAttributes redirectAttributes) {
+
+        String originalFileName = multipartFile.getOriginalFilename();
+        serviceForm.setImage(originalFileName);
+        try {
+            ServiceForm service = serviceFormService.addService(serviceForm, multipartFile);
+            if (service != null) {
+                redirectAttributes.addFlashAttribute("msg", "service added successfully");
+            } else {
+                redirectAttributes.addFlashAttribute("msg", "something went wrong");
+
+            }
+
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("msg", "something went wrong");
+
+        }
+        return "admin/addservice";
+    }
 }
