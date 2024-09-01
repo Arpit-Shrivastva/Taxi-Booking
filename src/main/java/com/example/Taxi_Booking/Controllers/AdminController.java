@@ -116,4 +116,10 @@ public class AdminController {
         }
         return "admin/addservice";
     }
+
+    @GetMapping("readAllService")
+    public String readAllServices(Model model) {
+        model.addAttribute("allServicessss", serviceFormService.readAllServices());
+        return "admin/readallservice";
+    }
 }
