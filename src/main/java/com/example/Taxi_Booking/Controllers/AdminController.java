@@ -122,4 +122,11 @@ public class AdminController {
         model.addAttribute("allServicessss", serviceFormService.readAllServices());
         return "admin/readallservice";
     }
+
+     @GetMapping("deleteService/{id}")
+    public String deleteService(@PathVariable int id, RedirectAttributes redirectAttributes) {
+        serviceFormService.deleteById(id);
+        redirectAttributes.addFlashAttribute("message", "Service deleted successfully");
+        return "redirect:/admin/readAllService";
+    }
 }
