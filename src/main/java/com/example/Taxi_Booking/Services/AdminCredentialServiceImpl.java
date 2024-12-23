@@ -50,5 +50,4 @@ public class AdminCredentialServiceImpl implements AdminCredentialService {
             return "Failed to Update";
         }
     }
-
 }
